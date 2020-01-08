@@ -5,7 +5,7 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project9.html
 > Use awk to solve Project 3, Question 2b, namely: How many passengers
 (altogether) rode in yellow taxi cab rides in New York City in June 2019? 
 
-```{.sh}
+```sh
 # Use cd to navigate to the yellow taxi data directory
 cd /class/datamine/data/taxi/yellow
 
@@ -28,7 +28,7 @@ awk -F, 'BEGIN   {                        }
 > Use awk to solve Project 4, Question 2b, namely: What is the mean total
 number of passengers in a New York City yellow taxi cab ride in June 2019?
 
-```{.sh}
+```sh
 # Use cat to list the contents of the desired file
 # Do the same thing as in (1a), with the addition of a new variable called
 # 'total_rides', which will represent the total number of rides in this data.
@@ -46,12 +46,12 @@ awk -F, 'BEGIN  {                                          }
 1.56732
 ```
 
-\newpage
+
 # Question 2a
 > Use awk to analyze the 8451 transactions data: find the total amount
 (in dollars) spent on grocery purchases (altogether) on 23 December 2017.
 
-```{.sh}
+```sh
 # Use cd to navigate to the transactions data directory
 cd /class/datamine/data/8451/The_Complete_Journey_2_Master
 # Use cat to list the contents of the transaction data
@@ -73,7 +73,7 @@ awk -F, 'BEGIN  {                                           }
 > Use awk to find the average amount (in dollars) spent in a transaction, on
 23 December 2017.
 
-```{.sh}
+```sh
 # Repeat the process from (2a), but also keep track of the number of
 # transactions that occurred on 23-DEC-17 using a variable called 'n'.
 # When done, print the average dollar amount spent per transaction.
@@ -90,7 +90,7 @@ awk -F, 'BEGIN  {                                                  }
 > Use awk to find the average amount (in dollars) in a donation in the 2018
 election campaign.
 
-```{.sh}
+```sh
 # Use cd to navigate to the election data directory
 cd /class/datamine/data/election
 # Use awk with -F\| to specify a '|' delimiter and add up the TRANSACTION_AMTs
