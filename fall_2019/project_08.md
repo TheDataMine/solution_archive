@@ -1,7 +1,3 @@
----
-geometry: top=2cm, bottom=2cm
----
-
 # Project 08 Answer Key
 https://datamine.purdue.edu/seminars/fall2019/stat19000project8.html
 
@@ -51,7 +47,6 @@ cat airports.csv | cut -d, -f3,4 | sort | uniq -c | sort -n | tail -n5
      12 NA,NA
 ```
 
-\newpage
 # Question 2a
 > Use a pipeline in the terminal to solve Project 4, Question 2c, namely: Which
 pickup location ID was the most popular for yellow taxi cab rides in June 2019?
@@ -100,7 +95,6 @@ cat itcont2020.txt | cut -d\| -f9,10 | sort | uniq -c | sort -n | tail -n5
   77999 NEW YORK|NY
 ```
 
-\newpage
 # Question 3a
 > The question is: How long does the code for these for solutions take to run
 (altogether) in R?
