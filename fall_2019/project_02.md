@@ -1,4 +1,6 @@
 # Project 02 Answer Key
+https://datamine.purdue.edu/seminars/fall2019/stat19000project2.html
+
 
 ## Question 3a (10 pts)
 > Modify the code from `/class/datamine/data/examples/LAmaps.R` to use the data
