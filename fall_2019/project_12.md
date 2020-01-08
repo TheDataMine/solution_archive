@@ -1,7 +1,3 @@
----
-geometry: top=2cm, bottom=2cm
----
-
 # Project 12 Answer Key
 https://datamine.purdue.edu/seminars/fall2019/stat19000project12.html
 
