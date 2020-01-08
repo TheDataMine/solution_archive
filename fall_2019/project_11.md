@@ -1,7 +1,3 @@
----
-geometry: top=2cm, bottom=2cm
----
-
 # Project 11 Answer Key
 https://datamine.purdue.edu/seminars/fall2019/stat19000project11.html
 
@@ -35,7 +31,7 @@ length(grep("VILLE$", election$CITY))
 [1] 107955
 ```
 
-\newpage
+
 # Question 2a
 > How many donations in the 2020 election data have a consecutive, repeated
 vowel in the (personal) name of the donor? In other words, how many donations
@@ -82,7 +78,6 @@ length(grep("^PARK ", election$NAME, value=TRUE))
 [1] 1
 ```
 
-\newpage
 # Question 3a
 > Use the method you learned in Project 9, Question 1, to cut only the 9th
 field from the data for all election years, and save the result in a file in
