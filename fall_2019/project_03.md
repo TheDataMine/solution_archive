@@ -7,7 +7,7 @@ stores in the 84.51 data set called `5000_transactions.csv`, found in the
 folder `The_Complete_Journey_2_Master`.
 
 ### Solution
-```{r}
+```r
 # Read in the data with the read.csv() function and use the table() function on
 # the STORE_R column to get a frequency table of each store.
 transactions = read.csv('class/datamine/data/8451/The_Complete_Journey_2_Master/5000_transactions.csv')
@@ -19,7 +19,7 @@ table(transactions$STORE_R)
 data is already stored on Scholar.
 
 ### Solution
-```{r}
+```r
 # Read in the data with the read.csv() function
 taxi_data = read.csv('/class/datamine/data/taxi/yellow/yellow_tripdata_2019-06.csv')
 ```
@@ -30,7 +30,7 @@ taxi_data = read.csv('/class/datamine/data/taxi/yellow/yellow_tripdata_2019-06.c
 City in June 2019?
 
 ### Solution
-```{r}
+```r
 # Use the sum() function to get a total of all passenger counts
 sum(taxi_data$passenger_count)
 ```
@@ -41,7 +41,7 @@ sum(taxi_data$passenger_count)
 the (continental) USA.
 
 ### Solution
-```{r}
+```r
 # Load the ggmap library
 library(ggmap)
 
@@ -64,7 +64,7 @@ usa_map = ggmap(get_googlemap(center=usa_center, zoom=4))
 usa_map
 ```
 
-```{r}
+```r
 # Add points to the map and display it
 usa_map_with_points = map + geom_point(data=usa_points, size=0.1)
 usa_map_with_points
