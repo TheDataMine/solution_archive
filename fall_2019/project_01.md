@@ -1,7 +1,7 @@
 # Project 01 Answer Key
 https://datamine.purdue.edu/seminars/fall2019/stat19000project1.html
 
-## Question 3a (2 pts)
+## Question 3a
 Some airline data is located at:  `/class/datamine/data/flights` Roughly how
 much data in stored in this directory?  We do not need an exact count (yet).
 Just give a sense:  several kilobytes? megabytes? gigabytes? petabytes?
@@ -25,7 +25,7 @@ du -bh /class/datamine/data/flights
 - The airline data is about 78 GB.
 
 
-## Question 3b (2 pts)
+## Question 3b
 Find the map files for the taxi data (these are jpg files). How many files
 are there, in that maps directory?
 
@@ -49,7 +49,7 @@ ls /class/datamine/data/taxi/maps | wc -l
 
 
 
-## Question 3c (2 pts)
+## Question 3c
 Roughly how much data is stored (altogether) in the directory about
 **yellow** taxi cabs?
 
@@ -72,7 +72,7 @@ du -bh /class/datamine/data/taxi/yellow
 - The yellow taxi cab data is about 226 GB.
 
 
-## Question 3d (2 pts)
+## Question 3d
 For which years do we have election data?
 
 ### File browser solution
@@ -97,7 +97,7 @@ itcont1990.txt  itcont2002.txt  itcont2014.txt
 - The election data covers the even-numbered years from years 1980 to 2020.
 
 
-## Question 3e (2 pts)
+## Question 3e
 For which cities in California do we have AirBnB data?
 
 ### File browser solution
