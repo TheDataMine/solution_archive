@@ -12,7 +12,7 @@ reports that the airline data is 83.1 GB.
 
 
 ### Command line solution
-```{.sh}
+```sh
 # Use the du command with the -b option for approximate disk usage
 # and -h option for human-readable output.
 
@@ -35,7 +35,7 @@ are there, in that maps directory?
 that directory.
 
 ### Command line solution
-```{.sh}
+```sh
 # Use ls to list the files in .../taxi/maps and count the number of lines in
 # the output.
 
@@ -59,7 +59,7 @@ Roughly how much data is stored (altogether) in the directory about
 are 241.9 GB of data about yellow taxi cabs in that directory.
 
 ### Command line solution
-```{.sh}
+```sh
 # Use the du command with the -b option for approximate disk usage and -h
 # option for human-readable output.
 
@@ -80,7 +80,7 @@ For which years do we have election data?
 about the elections held in the even-numbered years from 1980 to 2020.
 
 ### Command line solution
-```{.sh}
+```sh
 # Use ls to list the files in .../data/election.
 
 ls /class/datamine/data/election
@@ -106,7 +106,7 @@ data for 8 locations: 5 of them are cities and 3 are counties.  The cities are:
 Los Angeles, Oakland, Pacific Grove, San Diego, San Francisco.
 
 ### Command line solution
-```{.sh}
+```sh
 # Use ls to list the files in .../data/airbnb/united-states/ca.
 ls /class/datamine/data/airbnb/united-states/ca
 ```
