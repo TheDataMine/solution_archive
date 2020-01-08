@@ -6,7 +6,7 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project8.html
 Make a table of the number of transactions that occur in each of the four
 stores in the 84.51 data set called `5000_transactions.csv`, found in the
 folder `The_Complete_Journey_2_Master`.
-```{.sh}
+```sh
 # Use cd to navigate to the transactions data directory
 cd /class/datamine/data/8451/The_Complete_Journey_2_Master/
 # Use cat to list the contents of 5000_transactions.csv
@@ -27,7 +27,7 @@ cat 5000_transactions.csv | cut -d, -f7 | sort | uniq -c
 the terminal to solve Project 4, Question 1c, namely: Find the 4 cities that
 have the most airports.
 
-```{.sh}
+```sh
 # Use wget to download airports.csv
 wget http://stat-computing.org/dataexpo/2009/airports.csv
 # Use cat to list the contents of airports.csv
@@ -51,7 +51,7 @@ cat airports.csv | cut -d, -f3,4 | sort | uniq -c | sort -n | tail -n5
 > Use a pipeline in the terminal to solve Project 4, Question 2c, namely: Which
 pickup location ID was the most popular for yellow taxi cab rides in June 2019?
 
-```{.sh}
+```sh
 # Use cd to navigate to the taxi data directory
 cd /class/datamine/data/taxi/yellow/
 # Use cat to list the contents of the June 2019 taxi data
@@ -75,7 +75,7 @@ cat yellow_tripdata_2019-06.csv | cut -d, -f8 | sort | uniq -c | sort -n | tail 
 > Use a pipeline in the terminal to solve Project 4, Question 3c, namely: Which
 city has the largest number of donations so far, in the 2020 election season?
 
-```{.sh}
+```sh
 # Use cd to navigate to the election data directory
 cd /class/datamine/data/election/
 # Use cat to list the contents of itcont20202.txt
@@ -99,7 +99,7 @@ cat itcont2020.txt | cut -d\| -f9,10 | sort | uniq -c | sort -n | tail -n5
 > The question is: How long does the code for these for solutions take to run
 (altogether) in R?
 
-```{.r}
+```r
 # We'll use R's time functionality to time the execution time of our code
 start_time = Sys.time()
 
