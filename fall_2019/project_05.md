@@ -1,4 +1,5 @@
 # Project 05 Answer Key
+https://datamine.purdue.edu/seminars/fall2019/stat19000project5.html
 
 # Question 1a
 
