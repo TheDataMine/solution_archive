@@ -5,7 +5,7 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project4.html
 > Import the data about the airports from the file that we used in Question 3
 of Project 3, namely, `http://stat-computing.org/dataexpo/2009/airports.csv`
 
-```{R}
+```r
 # Read in the airport data using the read.csv() function
 airports = read.csv('http://stat-computing.org/dataexpo/2009/airports.csv')
 ```
@@ -13,7 +13,7 @@ airports = read.csv('http://stat-computing.org/dataexpo/2009/airports.csv')
 ## Question 1b
 > Paste together the columns for the city and state, using the `paste` command.
 
-```{R}
+```r
 # Combine the 'city' and 'state' columns into a new variable using the paste()
 # function
 city_and_state = paste(airports$city, airports$state)
@@ -25,7 +25,7 @@ head(city_and_state)
 > Use the `table`, `sort`, and `tail` commands to find the 4 cities that have
 the most airports. (Ignore the missing data `NA NA`.)
 
-```{R}
+```r
 # Since city names are not unique to each state, we use the combined city and
 # state variable we made in (1b)
 # We can remove any entries called 'NA NA'
@@ -42,7 +42,7 @@ tail(city_freq, n=4)
 > What is the mean total fare (“total amount”) for a yellow taxi cab ride in
 June 2019?
 
-```{R}
+```r
 # Read in the June 2019 taxi data using the read.csv() function
 taxi = read.csv('/class/datamine/data/taxi/yellow/yellow_tripdata_2019-06.csv')
 # Use the mean() function on the 'total_amount' column to get the average fare
@@ -54,7 +54,7 @@ mean(taxi$total_amount)
 > What is the mean total number of passengers in a New York City yellow taxi
 cab ride in June 2019?
 
-```{R}
+```r
 # Use the mean() function on the 'passenger_count' column to get the average
 # number of passengers per cab ride in June 2019
 mean(taxi$)
@@ -64,7 +64,7 @@ mean(taxi$)
 > Which pickup location ID was the most popular for yellow taxi cab rides in
 June 2019? Which location does that correspond to in New York?
 
-```{R}
+```r
 # Use the table() function to get a frequency table of pickup location IDs
 # Use the sort() function to sort the table by frequency
 PU_location_freq = sort(table(taxi$PULocationID), decreasing=TRUE)
@@ -72,7 +72,7 @@ PU_location_freq = sort(table(taxi$PULocationID), decreasing=TRUE)
 head(PU_location_freq, n=1)
 ```
 
-```{R}
+```r
 # Use the read.csv() function to read in the pickup location data
 pickup_locations = read.csv('https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_l
 ookup.csv')
@@ -86,7 +86,7 @@ pickup_locations[pickup_locations$LocationID == 237, ]
 they chose to use `|` instead of a comma, as a delimiter for the data? Hint:
 Consider, for instance, these names of donors: `myDF$NAME[9001:9050]`
 
-```{R}
+```r
 # Read in the election data using the read.csv() function
 elections = read.csv('/class/datamine/data/election/itcont2020.txt', sep='|')
 # Use the head() function to look at the subset defined in the hint
@@ -104,7 +104,7 @@ Make a new column of the data frame called `location` which contains the city
 and state (together) as one new column. Hint: You can use `names(myDF)` to see
 the names of all of the columns of the data frame.
 
-```{R}
+```r
 # Use the paste() function to combine the CITY and STATE columns into a new
 # column called 'location'
 elections$location = paste(elections$CITY, elections$STATE, sep=', ')
@@ -117,7 +117,7 @@ head(elections$location)
 season? (Do not worry about the dollar amount. Only consider the number of
 donations.)
 
-```{R}
+```r
 # Use the table() function to get a frequency table of cities
 # Since city names are not unique to each state, we use the combined city and
 # state column we made in (3b)
