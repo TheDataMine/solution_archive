@@ -6,7 +6,7 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project12.html
 the “name” column: “Beautiful”, “Charming”, “Cozy”, “Modern”, or “Private”?
 
 ## The Sane Solution                                                                 
-```{.r}                                                                             
+```r                                                                            
 # Use grep() with a regex pattern to match each word specified by the problem:      
 #   ^beautiful  matches the character sequence 'beautiful' if it occurs at the      
 #               beginning of a line.                                                
@@ -45,7 +45,7 @@ It is possible to check the frequencies of all the words in one go. This method
 also ignores leading non-alphanumeric characters. None of this is necessary at  
 all.                                                                            
                                                                                 
-```{.r}                                                                         
+```r                                                                 
 # Use read.csv() to read in the AirBnB data                                     
 airbnb = read.csv("/scratch/scholar/park831/listings.csv")                      
                                                                                 
@@ -86,7 +86,7 @@ sort(table(matches1a), decreasing=TRUE)
 the “name” column: “Apartment”, “Beach”, “Hollywood”, “Home”, or “House”?
 
 ## The Sane Solution                                                             
-```{.r}                                                                         
+```r
 # Use grep() with a regex pattern to match each word specified by the problem:  
 #   apartment$  matches the character sequence 'apartment' if it occurs at the  
 #               end of a line.                                                  
@@ -120,7 +120,7 @@ length(house)
 
 ## The Slightly Overkill Solution                                                
                                                                                 
-```{.r}                                                                         
+```r
 # Use sub() and a regex pattern to extract the first word out of each listing   
 # name in the AirBnB data:                                                      
 #   .*      matches 0 or more of any character.                                 
@@ -157,7 +157,7 @@ sort(table(matches1b), decreasing=TRUE)
 # Question 2
 > How many 5-character tailnums are there, with the form: N, followed by 3
 digits, followed by 1 alphanumeric character?
-```{.r}
+```r
 # Use read.csv() to read in the 2019 flight data
 flights = read.csv("/class/datamine/data/flights/2019.csv")
 # Store the tail nums in a variable
@@ -179,7 +179,7 @@ length(N_3digit_1alpha)
 
 > How many 6-character tailnums are there, with the form: N, followed by 3
 digits, followed by 2 alphanumeric characters?
-```{.r}
+```r
 # Use grep() with a regex pattern:
 #   ^N          matches 'N' if it occurs at the beginning of the line.
 #   [0-9]{2}    matches any two numeric characters from 0-9
@@ -196,7 +196,7 @@ length(N_3digit_2alpha)
 
 > How many 5-character tailnums are there, with the form: 3 digits, followed by
 NV?
-```{.r}
+```r
 # Use grep() with a regex pattern:
 #   ^[0-9]{3}   matches any two numeric characters from 0-9 that occur at the
 #               beginning of the line. 
@@ -211,7 +211,7 @@ length(threedigit_NV)
 ```
 
 > How many tailnums a there, with the form: ALL?
-```{.r}
+```r
 # Use grep() with a regex pattern:
 #   ^ALL$   matches "ALL" as it occurs simultaneously at the beginning and end
 #           of a line. 
@@ -225,7 +225,7 @@ length(all_tailnums)
 ```
 
 > How many tailnums are blank?
-```{.r}
+```r
 # Use grep() with a regex pattern:
 #   ^$   matches "" as it occurs simultaneously at the beginning and end of a
 #                   line. 
@@ -251,7 +251,7 @@ answering their own question.
 Nirvana, the Red Hot Chili Peppers, Lorde, and Tool to name a few. For reviews
 that mention Fugazi, what percentage mention influence?
 
-```{.r}
+```r
 fugazi = grep("fugazi", music$V1, ignore.case=TRUE, value=TRUE)
 fugazi_influence = grep("influen(ce|ces|ced|tial)",
                         fugazi, ignore.case=TRUE, value=TRUE)
@@ -266,7 +266,7 @@ length(fugazi_influence) / length(fugazi)
 many reviews contain the word 'oasis'? 'blur'? How do average character counts
 for these reviews compare?
 
-```
+```r
 music = read.delim("/class/datamine/data/amazon/music.txt",
                    quote="", header=FALSE)
 oasis = grep("oasis", music$V1, ignore.case=TRUE, value=TRUE)
@@ -296,7 +296,7 @@ Hüsker Dü are named after a Danish board game titled "Hūsker Dū?". What
 proportion of reviews that mention Hüsker Dü actually spell the name with full
 diacritics?
 
-```{.r}
+```r
 husker_du = grep("(H[ūüu]sker D[ūüu])", music$V1, ignore.case=TRUE, value=TRUE)
 husker_du_diacritic = ("Hüsker Dü", husker_du, ignore.case=TRUE, value=TRUE) 
 
