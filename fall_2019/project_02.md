@@ -10,7 +10,7 @@ key.
 ### Solution
 To create the proper London map, these are the specific changes must be made:
 
-```{r}
+```r
 # Read in the London AirBnB data instead of the LA data
 myDF <- read.csv("/class/datamine/data/airbnb/united-kingdom/england/london/201
 9-07-10/visualisations/listings.csv")
@@ -32,7 +32,7 @@ credit.
 
 
 ### Full sample solution 
-```{r}
+```r
 # We load the ggmap library.
 library(ggmap)
 
@@ -55,7 +55,7 @@ london_map <- ggmap(get_googlemap(center=london_center, zoom=9))
 london_map
 ```
 
-```{r}
+```r
 # Finally, we add the points to the map
 london_map <- london_map + geom_point(data=mypoints, size=0.1)
 # and we display the map again.
