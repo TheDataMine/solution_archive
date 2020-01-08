@@ -5,7 +5,7 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project7.html
 >  Display the stanza of poetry written in this file: `/class/datamine/data/hid
 den/poem.txt`
 
-```{.sh}
+```sh
 # Use cat to list the contents of poem.txt
 cat /class/datamine/data/hidden/poem.txt
 ```
@@ -20,7 +20,7 @@ Rage, rage against the dying of the light.
 > Download the 2006 flights from the 2009 ASA Data Expo, using the method that
 was demonstrated in the project 7 examples
 
-```{.sh}
+```sh
 # Use wget to download 2006.csv.bz2
 wget http://stat-computing.org/dataexpo/2009/2006.csv.bz2
 # Use bzip2 with -d to expand the downloaded file
@@ -39,7 +39,7 @@ wc -l 2006.csv
 the information about the flights that departed or arrived at IND, into a new
 file called `indyflights.csv`.
 
-```{.sh}
+```sh
 # Use grep with to search for IND in indyflights.csv
 # Optionally pipe the output into head to see only the first 10 lines
 grep IND indyflights.csv | head
@@ -58,13 +58,13 @@ grep IND indyflights.csv | head
 2006,1,11,3,1108,1105,1303,1242,US,1675,N812MD,115,97,79,21,3,IND,PHL,587,4,32,0,,0,0,0,21,0,0
 ```
 
-\newpage
+
 # Question 2b
 > Using the `5000_transactions.csv` file from 8451, save all of the information
 about the purchases from January 1, 2017 (but no other information), into a new
 file called `newyearsday.csv`.
 
-```{.sh}
+```sh
 # Use grep to search for lines containing '01-JAN-17' in the transactions data
 # Use > to pipe the output into a file called newyearsday.csv
 grep 01-JAN-17 /class/datamine/data/8451/The_Complete_Journey_2_Master/5000_tra
@@ -91,7 +91,7 @@ head newyearsday.csv
 information about the donors that were somehow affiliated with Purdue, into a
 new file called `purduedonations.txt`.
 
-```{.sh}
+```sh
 # Use grep to search for PURDUE in the 2018 election data
 # Use > to pipe the output to a file called purduedonations.txt
 grep PURDUE /class/datamine/data/election/itcont2018.txt > purduedonations.txt
@@ -117,12 +117,12 @@ means that your output will also contain donations made by people named
 above: `PURDUE, PAULA` from Chicago. For the purposes of this problem, it's OK
 to include these entries!
 
-\newpage
+
 # Question 2d
 > How many such donations were made in the 2018 election campaign, from Purdue-
 related donors?
 
-```{.sh}
+```sh
 Use wc with -l to get the line count of the purudue donors file
 wc -l purduedonations.txt
 ```
@@ -131,13 +131,13 @@ wc -l purduedonations.txt
 2237 purduedonations.txt
 ```
 
-\newpage
+
 # Question 3a
 > Using the flights from 2006 that were downloaded in question 1b, save all of
 the information about the origins and destinations of the flights (but none of
 the other information from the other variables), into a new file called
 `originsdestinations.csv`.
-```{.sh}
+```sh
 # Use cut with -d, to specify a comma delimiter and -f17,18 to get fields 17 and 18
 # Use > to pipe the output to a file called originsdestinations.csv
 cut -d, -f17,18 2006.csv > originsdestinations.csv
