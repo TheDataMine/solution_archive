@@ -2,7 +2,7 @@
 https://datamine.purdue.edu/seminars/fall2019/stat19000project2.html
 
 
-## Question 3a (10 pts)
+## Question 3a
 > Modify the code from `/class/datamine/data/examples/LAmaps.R` to use the data
 about London, and to use your own Google Maps API Key, instead of Dr Ward’s
 key.
