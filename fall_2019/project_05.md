@@ -5,7 +5,7 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project5.html
 
 > Which `host_id` has received the largest number of reviews?
 
-```{R}
+```r
 # Use read.csv() to read the LA AirBnB data into RStudio
 LA_airbnb = read.csv("/class/datamine/data/airbnb/united-states/ca/los-angeles
 	/2019-07-08/visualisations/listings.csv")
@@ -20,7 +20,7 @@ tail(sort(reviews_by_host))
 
 > Which neighbourhood has received the largest number of reviews?
 
-```{R}
+```r
 # Use tapply() to get the AirBnB review totals for each LA neighborhood
 reviews_by_neighborhood = tapply(LA_airbnb$number_of_reviews,
 	LA_airbnb$neighbourhood, sum)
@@ -35,7 +35,7 @@ tail(sort(reviews_by_neighborhood))
 destination of each flight, and store the result in a new column of the data
 frame, called myflightpath.
 
-```{R}
+```r
 # Use read.csv() to read the flights data into RStudio
 flights = read.csv("/class/datamine/data/flights/2019.csv")
 # Use paste() to create a new column by combining the ORIGIN and DEST columns
@@ -48,7 +48,7 @@ head(flights$myflightpath)
 
 > Which flight path has the longest average departure delay?
 
-```{R}
+```r
 # Use tapply() to get the mean departure delay of each flight path 
 delay_by_path = tapply(flights$DEP_DELAY, flights$myflightpath, mean)
 # Use sort() to order the flight paths by mean departure delay 
@@ -62,7 +62,7 @@ tail(sort(delay_by_path))
 Classify each (joint) city, state “location” according to the total amount
 donated by residents of that city, state.
 
-```{R}
+```r
 # Use read.delim() to read in the election data with the '|' separator
 elections = read.delim("/class/datamine/data/election/itcont2020.txt", sep="|")
 # Use paste() to create a new column by combining the CITY and STATE columns
@@ -76,7 +76,7 @@ donations_by_location = tapply(elections$TRANSACTION_AMT, elections$location, su
 > Which six campaign committees have received the largest total dollar amount
 of donations (so far) in the 2020 election campaign?
  
-```{R}
+```r
 # Use tapply() to get the donation totals for each committee 
 donations_by_committee = tapply(elections$TRANSACTION_AMT, elections$CMTE_ID, sum)
 # Use sort() to order the committees by donation totals
