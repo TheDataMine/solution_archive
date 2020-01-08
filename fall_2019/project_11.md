@@ -6,7 +6,7 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project11.html
 field) how many donations are from cities whose name ends in “burg”? How about
 “boro”? “shire”? “ton”? “town”? “ville”?
 
-```{.r}
+```r
 election = read.csv("/class/datamine/data/election/itcont2020.txt", sep="|")
 length(grep("BURG$", election$CITY))
 length(grep("BORO$", election$CITY))
@@ -49,7 +49,7 @@ length(grep("(AA|EE|II|OO|UU)", election$NAME, value=TRUE))
 > Which donor(s) has/have the longest name(s) in the 2020 election data, in
 terms of character length?
 
-```{.r}
+```r
 name_lengths = nchar(as.character(election$NAME))
 names_and_lengths = data.frame(name_lengths, election$NAME)
 names_and_lengths[which.max(names_and_lengths$name_lengths), ]
@@ -70,7 +70,7 @@ as yours? (For instance, Dr Ward would look for people whose name starts with
 Ward. You want to make sure to check the beginning of the name, since the last
 names come first.)
 
-```{.r}
+```r
 length(grep("^PARK ", election$NAME, value=TRUE))
 ```
 ```
@@ -83,7 +83,7 @@ length(grep("^PARK ", election$NAME, value=TRUE))
 field from the data for all election years, and save the result in a file in
 your home directory called: myelectiontowns.txt
 
-```{.sh}
+```sh
 cat /class/datamine/data/election/*.txt | cut -d\| -f9 > myelectiontowns.txt
 ```
 
@@ -91,7 +91,7 @@ cat /class/datamine/data/election/*.txt | cut -d\| -f9 > myelectiontowns.txt
 > How many donations come from cities whose names end in the phrase “ton”,
 across all election years?
 
-```{.sh}
+```sh
 cat myelectiontowns.txt | egrep 'TON$' | wc -l
 ```
 ```
@@ -103,7 +103,7 @@ cat myelectiontowns.txt | egrep 'TON$' | wc -l
 > How many unique city names are there in question 3b? (For this question, it
 is safe to only consider the city name and to ignore the State name.)
 
-```{.sh}
+```sh
 cat myelectiontowns.txt | sort | uniq | wc -l
 ```
 ```
