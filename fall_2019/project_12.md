@@ -9,78 +9,153 @@ https://datamine.purdue.edu/seminars/fall2019/stat19000project12.html
 > Among these five words, which word appears most often as the first word of
 the “name” column: “Beautiful”, “Charming”, “Cozy”, “Modern”, or “Private”?
 
-```{.r}
-# Use read.csv() to read in the AirBnB data
-airbnb = read.csv("/scratch/scholar/park831/listings.csv")
+## The Sane Solution                                                                 
+```{.r}                                                                             
+# Use grep() with a regex pattern to match each word specified by the problem:      
+#   ^beautiful  matches the character sequence 'beautiful' if it occurs at the      
+#               beginning of a line.                                                
+                                                                                    
+beautiful = grep("^beautiful", airbnb$name, ignore.case=TRUE)                       
+charming = grep("^charming", airbnb$name, ignore.case=TRUE)                         
+cozy = grep("^cozy", airbnb$name, ignore.case=TRUE)                                 
+modern = grep("^modern", airbnb$name, ignore.case=TRUE)                             
+private = grep("^private", airbnb$name, ignore.case=TRUE)                           
+                                                                                    
+# Use length to check the number of matches per specified pattern                   
+length(beautiful)                                                                   
+length(charming)                                                                    
+length(cozy)                                                                        
+length(modern)                                                                      
+length(private)                                                                     
+```                                                                             
+```                                                                             
+>>>                                                                             
+> length(beautiful)                                                             
+[1] 1269                                                                        
+> length(beautiful)                                                             
+[1] 1269                                                                        
+> length(charming)                                                              
+[1] 984                                                                         
+> length(cozy)                                                                  
+[1] 1835                                                                        
+> length(modern)                                                                
+[1] 972                                                                         
+> length(private)                                                               
+[1] 2573                                                                        
+```
 
-# Use sub() and a regex pattern to extract the first word out of each listing
-# name in the AirBnB data:
-#   \\W*    matches 0 or more non-alphanumeric characters.
+## The Slightly Overkill Solution                                                
+It is possible to check the frequencies of all the words in one go. This method 
+also ignores leading non-alphanumeric characters. None of this is necessary at  
+all.                                                                            
+                                                                                
+```{.r}                                                                         
+# Use read.csv() to read in the AirBnB data                                     
+airbnb = read.csv("/scratch/scholar/park831/listings.csv")                      
+                                                                                
+# Use sub() and a regex pattern to extract the first word out of each listing   
+# name in the AirBnB data:                                                      
+#   \\W*    matches 0 or more non-alphanumeric characters.                      
 #   (\\w+)  is a capture group that matches for sequential alphanumeric characters.
-#   .*      matches 0 or more of any character.
-# The replacement parameter "\\1" will replace the entire line with the string
-# captured by the (\\w+) capture group:
-#   ex. airbnb$name             -> firstwords
-#       "beautiful location"    -> "BEAUTIFUL"
-#       "Cozy space near town"  -> "COZY" 
-# User toupper() to convert the output to upper case.
-firstwords = toupper(sub(pattern="\\W*?(\\w+).*", replacement="\\1", airbnb$name))
-
-# Define a regex pattern for lines that contain words specified by the problem:
+#   .*      matches 0 or more of any character.                                 
+# The replacement parameter "\\1" will replace the entire line with the string  
+# captured by the (\\w+) capture group:                                         
+#   ex. airbnb$name             -> firstwords                                   
+#       "beautiful location"    -> "BEAUTIFUL"                                  
+#       "Cozy space near town"  -> "COZY"                                       
+# User toupper() to convert the output to upper case.                           
+firstwords = toupper(sub(pattern="\\W*(\\w+).*", replacement="\\1", airbnb$name))
+                                                                                
+# Define a regex pattern for lines that contain words specified by the problem: 
 #   ^                                           matches the beginning of the line.
 #   (beautiful|charming|cozy|modern|private)    is a capture group for any of the
-#                                               words contained inside.
-#   $                                           matches the end of the line. 
-matches1a = grep('^(beautiful|charming|cozy|modern|private)$',
-                 firstwords, ignore.case=TRUE, value=TRUE)
-
-# Use table() to get the frequencies of each word
-# Use sort() with decreasing=TRUE to order the frequencies from greatest to
-# least for each word.
-sort(table(matches1a), decreasing=TRUE)
-```
-```
->>>
-    PRIVATE      COZY BEAUTIFUL    MODERN  CHARMING 
-       2597      1860      1257      1007       994
+#                                               words contained inside.         
+#   $                                           matches the end of the line.    
+matches1a = grep('^(beautiful|charming|cozy|modern|private)$',                  
+                 firstwords, ignore.case=TRUE, value=TRUE)                      
+                                                                                
+# Use table() to get the frequencies of each word                               
+# Use sort() with decreasing=TRUE to order the frequencies from greatest to     
+# least for each word.                                                          
+sort(table(matches1a), decreasing=TRUE)                                         
+```                                                                             
+```                                                                             
+>>>                                                                             
+    PRIVATE      COZY BEAUTIFUL    MODERN  CHARMING                             
+       2597      1860      1257      1007       994                             
 ```
 
 # Question 1b
 > Among these five words, which word appears most often as the last word of
 the “name” column: “Apartment”, “Beach”, “Hollywood”, “Home”, or “House”?
 
-```{.r}
-# Use sub() and a regex pattern to extract the first word out of each listing
-# name in the AirBnB data:
-#   .*      matches 0 or more of any character.
-#   \\s     matches a space character (tabs, spaces).
+## The Sane Solution                                                             
+```{.r}                                                                         
+# Use grep() with a regex pattern to match each word specified by the problem:  
+#   apartment$  matches the character sequence 'apartment' if it occurs at the  
+#               end of a line.                                                  
+                                                                                
+apartment = grep("apartment", airbnbname, ignore.case=TRUE)                     
+beach = grep("beach", airbnbname, ignore.case=TRUE)                             
+hollywood = grep("hollywood", airbnbname, ignore.case=TRUE)                     
+home = grep("home", airbnbname, ignore.case=TRUE)                               
+house = grep("house", airbnbname, ignore.case=TRUE)                             
+                                                                                
+# Use length to check the number of matches per specified pattern               
+length(apartment)                                                               
+length(beach)                                                                   
+length(hollywood)                                                               
+length(home)                                                                    
+length(house)                                                                   
+```                                                                             
+```                                                                             
+>>>                                                                             
+> length(apartment)                                                             
+[1] 950                                                                         
+> length(beach)                                                                 
+[1] 1253                                                                        
+> length(hollywood)                                                             
+[1] 1112                                                                        
+> length(home)                                                                  
+[1] 1304                                                                        
+> length(house)                                                                 
+[1] 1583                                                                        
+```
+
+## The Slightly Overkill Solution                                                
+                                                                                
+```{.r}                                                                         
+# Use sub() and a regex pattern to extract the first word out of each listing   
+# name in the AirBnB data:                                                      
+#   .*      matches 0 or more of any character.                                 
+#   \\s     matches a space character (tabs, spaces).                           
 #   (\\w+)  is a capture group that matches for sequential alphanumeric characters.
-#   \\W*    matches 0 or more non-alphanumeric characters.
-# The replacement parameter "\\1" will replace the entire line with the string
-# captured by the (\\w+) capture group:
-#   ex. airbnb$name             -> firstwords
-#       "beautiful location"    -> "BEAUTIFUL"
-#       "Cozy space near town"  -> "COZY" 
-# User toupper() to convert the output to upper case.
-lastwords = toupper(sub(".*\\s(\\w+)\\W*", "\\1", airbnb$name))
-
-# Define a regex pattern for lines that contain words specified by the problem:
-#   ^                                       matches the beginning of the line.
-#   (apartment|beach|hollywood|home|house)  is a capture group for any of the
-#                                           words contained inside.
-#   $                                       matches the end of the line. 
-matches1b = grep('^(apartment|beach|hollywood|home|house)$',
-                 lastwords, ignore.case=TRUE, value=TRUE)
-
-# Use table() to get the frequencies of each word
-# Use sort() with decreasing=TRUE to order the frequencies from greatest to
-# least for each word.
-sort(table(matches1b), decreasing=TRUE)
-```
-```
->>>
-    BEACH      HOME     HOUSE HOLLYWOOD APARTMENT 
-     1611      1429      1317      1274      1050
+#   \\W*    matches 0 or more non-alphanumeric characters.                      
+# The replacement parameter "\\1" will replace the entire line with the string  
+# captured by the (\\w+) capture group:                                         
+#   ex. airbnb$name             -> firstwords                                   
+#       "beautiful location"    -> "BEAUTIFUL"                                  
+#       "Cozy space near town"  -> "COZY"                                       
+# User toupper() to convert the output to upper case.                           
+lastwords = toupper(sub(".\\s(\\w+)\\W", "\\1", airbnb$name))                   
+                                                                                
+# Define a regex pattern for lines that contain words specified by the problem: 
+#   ^                                       matches the beginning of the line.  
+#   (apartment|beach|hollywood|home|house)  is a capture group for any of the   
+#                                           words contained inside.             
+#   $                                       matches the end of the line.        
+matches1b = grep('^(apartment|beach|hollywood|home|house)$',                    
+                 lastwords, ignore.case=TRUE, value=TRUE)                       
+                                                                                
+# Use table() to get the frequencies of each word                               
+# Use sort() with decreasing=TRUE to order the frequencies from greatest to     
+# least for each word.                                                          
+sort(table(matches1b), decreasing=TRUE)                                         
+```                                                                             
+```                                                                             
+>>>                                                                             
+    BEACH      HOME     HOUSE HOLLYWOOD APARTMENT                               
+     1611      1429      1317      1274      1050                               
 ```
 
 # Question 2
