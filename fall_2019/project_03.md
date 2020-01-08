@@ -65,6 +65,6 @@ usa_map
 
 ```{r}
 # Add points to the map and display it
-usa_map_with_points = map + geom_point(data=usa_points, size=0.07)
+usa_map_with_points = map + geom_point(data=usa_points, size=0.1)
 usa_map_with_points
 ```
